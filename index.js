@@ -1,6 +1,6 @@
-function isPalindrome(str) {
-  const reversed = str.split("").reverse().join("");
-  return str === reversed;
+function flattenArray(arr) {
+  return arr.reduce(
+    (acc, curr) => acc.concat(Array.isArray(curr) ? flattenArray(curr) : curr),
+    [],
+  );
 }
-
-console.log(isPalindrome("racecar")); // true
