@@ -1,6 +1,3 @@
-function flattenArray(arr) {
-  return arr.reduce(
-    (acc, curr) => acc.concat(Array.isArray(curr) ? flattenArray(curr) : curr),
-    [],
-  );
+function rotateArray(arr, n) {
+  return arr.slice(n).concat(arr.slice(0, n));
 }
