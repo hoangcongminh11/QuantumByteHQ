@@ -1,4 +1,1 @@
-const factorial = (num) => {
-  if (num === 0) return 1;
-  return num * factorial(num - 1);
-};
+const zip = (arr1, arr2) => arr1.map((el, i) => [el, arr2[i]]);
