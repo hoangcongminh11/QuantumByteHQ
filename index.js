@@ -1,7 +1,17 @@
-function pathSum(root, sum) {
-  if (!root) return false;
-  if (!root.left && !root.right && root.val === sum) return true;
-  return (
-    pathSum(root.left, sum - root.val) || pathSum(root.right, sum - root.val)
-  );
+function levelOrder(root) {
+  if (!root) return [];
+  const result = [];
+  const queue = [root];
+  while (queue.length) {
+    const size = queue.length;
+    const level = [];
+    for (let i = 0; i < size; i++) {
+      const node = queue.shift();
+      level.push(node.val);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    result.push(level);
+  }
+  return result;
 }
