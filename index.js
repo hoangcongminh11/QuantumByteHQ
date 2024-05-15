@@ -1,17 +1,15 @@
-function levelOrder(root) {
-  if (!root) return [];
-  const result = [];
-  const queue = [root];
-  while (queue.length) {
-    const size = queue.length;
-    const level = [];
-    for (let i = 0; i < size; i++) {
-      const node = queue.shift();
-      level.push(node.val);
-      if (node.left) queue.push(node.left);
-      if (node.right) queue.push(node.right);
-    }
-    result.push(level);
+const selectionSortRecursive = (arr, start = 0) => {
+  if (start >= arr.length - 1) {
+    return arr;
   }
-  return result;
-}
+  let minIndex = start;
+  for (let i = start + 1; i < arr.length; i++) {
+    if (arr[i] < arr[minIndex]) {
+      minIndex = i;
+    }
+  }
+  if (minIndex !== start) {
+    [arr[start], arr[minIndex]] = [arr[minIndex], arr[start]];
+  }
+  return selectionSortRecursive(arr, start + 1);
+};
